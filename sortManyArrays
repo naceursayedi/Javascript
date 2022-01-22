@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>test</title>
+   
+
+  </head>
+  <body>
+    <script>
+var activities = ['2019-06-28 22:10','2019-06-10 10:19','2019-06-22 13:12','2019-06-22 13:14']
+var names = ["Bob","Tom","Larry","Naceur"];
+var ages =  ["10", "20", "30","21"];
+var nicknames =  ["b", "t", "l","n"];
+var married =  ["y", "n", "y","n"];
+
+//1) combine the arrays:
+var list = [];
+for (var j = 0; j < names.length; j++) 
+    list.push({'name': names[j], 'age': ages[j], 'activity': activities[j],'nicknames': nicknames[j],'married': married[j]});
+console.table(list);   
+//2) sort:
+list.sort(function(a, b) {let x = new Date(a.activity),
+        y = new Date(b.activity);
+    return x - y;
+    //Sort could be modified to, for example, sort on the age 
+    // if the name is the same.
+});
+console.table(list);
+
+//3) separate them back out:
+for (var k = 0; k < list.length; k++) {
+    names[k] = list[k].name;
+    ages[k] = list[k].age;
+    activities[k] = list[k].activity;
+    nicknames[k] = list[k].nicknames;
+    married[k] = list[k].married;
+}
+   
+    
+
+      </script>
+  </body>
+</html>
